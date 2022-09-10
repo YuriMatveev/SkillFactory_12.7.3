@@ -4,28 +4,32 @@ while True:
         tickets = int(input("Введите количество билетов для онлайн-конференции: "))
         if type(tickets) == int:
             break
-    except ValueError:
+    except:
         print("Введите корректное количество!")
 for i in range(tickets):
     i += 1
     while True:
         try:
-            age = int(input(f"Возраст посетителя № {i} : "))
-            if age >= 25:
+            age = int(input(f"Возраст посетителя (полных лет) № {i} : "))
+            if age >= 100 or age <=0:
+                print("Такой возраст не подходит, попробуйте заново")
+                continue
+            elif 25 <= age < 100:
                 price += 1390
-                print("Цена билета: 1390 руб.")
+                print(f"Цена билета посетителя № {i} : 1390 руб.")
             elif 25 > age >= 18:
                 price += 990
-                print("Цена билета: 990 руб.")
+                print(f"Цена билета посетителя № {i} : 990 руб.")
             else:
-                print("Проход бесплатный")
+                print(f"Проход для посетителя № {i} бесплатный")
             if type(age) == int:
                break
-        except ValueError:
-            print("Введите корректный возраст!")
+        except:
+            print("Неверный формат ввода, попробуйте ввести заново")
 
 if tickets < 3:
     print(f"Сумма к оплате: {price} руб.")
 else:
     discount_price = int(price * 0.9)
-    print(f"Сумма к оплате: {discount_price} руб. За регистрацию группы больше трех человек скидка 10%.")
+    print(f"Сумма к оплате: {discount_price} руб.")
+    print("Скидка 10% за регистрацию группы больше трех человек.")
