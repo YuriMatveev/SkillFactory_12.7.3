@@ -1,7 +1,12 @@
-sequence = input("Введите последовательность чисел через пробел: ")
-array_str = sequence.split()
-array_int = [int(x) for x in array_str]
-
+while True:
+    try:
+        sequence = input("Введите последовательность чисел через пробел: ")
+        array_str = sequence.split()
+        array_int = [int(x) for x in array_str]
+        break
+    except:
+        print("Ошибка, повторите ввод!")
+        
 while True:
     try:
         value = int(input("Введите любое число: "))
